@@ -18,13 +18,4 @@ public class GroupCreationTests extends TestBase {
     returnToGroupsPage();
   }
 
- // @Test
- // public void testEmptyGroupCreation() throws Exception {
-   // openMainPage();
-    //gotoGroupsPage();
-    //initGroupCreation();
-    //fillGroupForm(new GroupData("", "", ""));
-    //submitGroupCreation();
-    //returnToGroupsPage();
-  //}
 }
