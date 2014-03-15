@@ -20,7 +20,7 @@ public class ContactCreationTests extends TestBase {
     contact.bday = "14";
     contact.bmonth = "January";
     contact.byear = "1980";
-    contact.newgroup = "123";
+    //contact.newgroup = "123";
     contact.address2 = "-";
     contact.phone2 = "-";
 	app.getContactHelper().fillContactForm(contact);

@@ -13,7 +13,7 @@ public class ContactData {
 	public String bday;
 	public String bmonth;
 	public String byear;
-	public String newgroup;
+	//public String newgroup;
 	public String address2;
 	public String phone2;
 
@@ -35,7 +35,7 @@ public class ContactData {
 		this.bday = bday;
 		this.bmonth = bmonth;
 		this.byear = byear;
-		this.newgroup = newgroup;
+		//this.newgroup = newgroup;
 		this.address2 = address2;
 		this.phone2 = phone2;
 	}
