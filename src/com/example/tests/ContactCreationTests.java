@@ -37,7 +37,7 @@ public class ContactCreationTests extends TestBase {
     app.getContactHelper().submitContactCreation();
     app.getContactHelper().returnToHomePage();
     
-    // save new state
+ // save new state
     List<ContactData> newList = app.getContactHelper().getContacts();
     
     //compare state
