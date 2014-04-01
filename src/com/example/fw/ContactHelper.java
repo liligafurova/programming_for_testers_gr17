@@ -44,14 +44,12 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void initContactSelecting(int index) {
-		selectContactByIndex(index-1);
-		click(By.xpath("//tr[" + index + "]/td[7]/a/img[@alt='Edit']"));
-
+		selectContactByIndex(index);
+		click(By.xpath("//tr[@name='entry'][" + (index+1) + "]/td[7]/a/img[@alt='Edit']"));
 	}
 
 	private void selectContactByIndex(int index) {
-		click(By.xpath("//input[@name='selected[]'][" + index +"]"));
-		
+		click(By.xpath("//tr[@name='entry'][" + (index+1) + "]/td[1]/input[@name='selected[]']"));
 	}
 
 	public void deleteContact(int index) {
@@ -66,11 +64,6 @@ public class ContactHelper extends HelperBase {
 
 	public List<ContactData> getContacts() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
-		//List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
-		//for (WebElement checkbox : checkboxes) {
-			//ContactData contact = new ContactData();
-			//String title = checkbox.getAttribute("title");
-			//contact.firstname = title.substring("Select (".length(), title.length() - ")".length());
 		List<WebElement> tableRows = driver.findElements(By.xpath("//tr[@name='entry']"));
 		for (WebElement row : tableRows) {
 			ContactData contact = new ContactData();
