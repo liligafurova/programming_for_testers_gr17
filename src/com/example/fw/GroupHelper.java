@@ -19,13 +19,13 @@ public class GroupHelper extends HelperBase {
 	
 	public List<GroupData> getGroups() {
 		if (cachedGroups == null){
-		rebuildCache();	
+			rebuildCache();	
 		}
 		return cachedGroups;
 	}
 	
 	private void rebuildCache() {
-		List<GroupData> cachedGroups = new ArrayList<GroupData>();
+		cachedGroups = new ArrayList<GroupData>();
 		manager.navigateTo().groupsPage();
 		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
 		for (WebElement checkbox : checkboxes) {

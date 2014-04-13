@@ -26,13 +26,13 @@ public class ContactHelper extends HelperBase {
 	
 	public List<ContactData> getContacts() {
 		if (cachedContacts == null){
-		rebuildCache();	
+			rebuildCache();	
 		}
 		return cachedContacts;
 	}
 	
 	private void rebuildCache()  {
-		List<ContactData> cachedContacts = new ArrayList<ContactData>();
+		cachedContacts = new ArrayList<ContactData>();
 		manager.navigateTo().mainPage();
 		List<WebElement> tableRows = driver.findElements(By.xpath("//tr[@name='entry']"));
 		for (WebElement row : tableRows) {
@@ -69,6 +69,7 @@ public class ContactHelper extends HelperBase {
 	}
 	
 	public ContactHelper deleteContact(int index) {
+		initContactSelecting(index);
 		submitContactDeleting();
 		returnToHomePage();
 		rebuildCache();
@@ -138,6 +139,5 @@ public class ContactHelper extends HelperBase {
 	
 	private void submitContactDeleting() {
 		click(By.xpath("//input[@value='Delete']"));
-		cachedContacts = null;
 	}
 }
