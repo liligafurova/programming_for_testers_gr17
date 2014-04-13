@@ -1,16 +1,15 @@
 package com.example.fw;
 
-import static com.example.fw.ContactHelper.CREATION;
-import static com.example.fw.ContactHelper.MODIFICATION;
+//import static com.example.fw.ContactHelper.CREATION;
+//import static com.example.fw.ContactHelper.MODIFICATION;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.example.tests.ContactData;
-import com.example.tests.GroupData;
+import com.example.utils.SortedListOf;
 
 public class ContactHelper extends HelperBase {
 	
@@ -18,13 +17,12 @@ public class ContactHelper extends HelperBase {
 	public static boolean MODIFICATION = false;
 
 	public ContactHelper(ApplicationManager manager) {
-		super(manager);
-		
+		super(manager);	
 	}
 	
-	private List<ContactData> cachedContacts;
+	private SortedListOf<ContactData> cachedContacts;
 	
-	public List<ContactData> getContacts() {
+	public SortedListOf<ContactData> getContacts() {
 		if (cachedContacts == null){
 			rebuildCache();	
 		}
@@ -32,7 +30,7 @@ public class ContactHelper extends HelperBase {
 	}
 	
 	private void rebuildCache()  {
-		cachedContacts = new ArrayList<ContactData>();
+		cachedContacts = new SortedListOf<ContactData>();
 		manager.navigateTo().mainPage();
 		List<WebElement> tableRows = driver.findElements(By.xpath("//tr[@name='entry']"));
 		for (WebElement row : tableRows) {
