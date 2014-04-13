@@ -13,10 +13,7 @@ public class GroupRemovalTests extends TestBase {
 	@Test(dataProvider = "randomValidGroupGenerator")
 	public void deleteSomeGroup(GroupData group) {
 		
-		app.getNavigationHelper().openMainPage();
-	    app.getNavigationHelper().gotoGroupsPage();
-	    
-	    // save old state
+		// save old state
 	    List<GroupData> oldList = app.getGroupHelper().getGroups();
 	    
 	    Random rnd = new Random();
@@ -24,7 +21,6 @@ public class GroupRemovalTests extends TestBase {
 	    
 	    //actions
 	    app.getGroupHelper().deleteGroup(index);
-	    app.getGroupHelper().returnToGroupsPage();
 	    
 	    // save new state
 	    List<GroupData> newList = app.getGroupHelper().getGroups();

@@ -12,9 +12,7 @@ public class ContactRemovalTests extends TestBase{
 
 	@Test(dataProvider = "randomValidContactGenerator")
 	public void deleteSomeContact(ContactData contact) {
-				
-		app.getNavigationHelper().openMainPage();
-		
+			
 		//save old state
 	    List<ContactData> oldList = app.getContactHelper().getContacts();
 	    
@@ -22,9 +20,7 @@ public class ContactRemovalTests extends TestBase{
 	    int index = rnd.nextInt(oldList.size() - 1);
 		
 		//actions
-	    app.getContactHelper().initContactSelecting(index);
-		app.getContactHelper().deleteContact(index);
-	    app.getContactHelper().returnToHomePage();
+	    app.getContactHelper().deleteContact(index);
 	    
 	    // save new state
 	    List<ContactData> newList = app.getContactHelper().getContacts();

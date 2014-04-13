@@ -30,10 +30,10 @@ public class TestBase {
 	
 		List<Object[]> list = new ArrayList<Object[]>();
 		for (int i=0; i<3; i++){
-			GroupData group = new GroupData();
-			group.name = generateRandomString();
-			group.header = generateRandomString();
-			group.footer = generateRandomString();
+			GroupData group = new GroupData()
+			.withName(generateRandomString())
+			.withHeader(generateRandomString())
+			.withFooter(generateRandomString());
 			list.add(new Object[]{group});	
 		}
 		return list.iterator();
@@ -43,11 +43,11 @@ public class TestBase {
 	public Iterator<Object[]> randomValidContactGenerator(){
 		
 		List<Object[]> list = new ArrayList<Object[]>();
-		for (int i=0; i<5; i++){
-			ContactData contact = new ContactData();
-			contact.firstname = generateRandomString();
-			contact.lastname = generateRandomString();
-			contact.address = generateRandomString();
+		for (int i=0; i<3; i++){
+			ContactData contact = new ContactData()
+			.withFirstname(generateRandomString())
+			.withLastname(generateRandomString())
+			.withAddress(generateRandomString());
 			list.add(new Object[]{contact});	
 		}
 		return list.iterator();
