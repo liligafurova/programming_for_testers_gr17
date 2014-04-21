@@ -1,8 +1,5 @@
 package com.example.fw;
 
-//import static com.example.fw.ContactHelper.CREATION;
-//import static com.example.fw.ContactHelper.MODIFICATION;
-
 import java.util.List;
 
 import org.openqa.selenium.By;
