@@ -1,5 +1,7 @@
 package com.example.tests;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 
 import org.testng.annotations.DataProvider;
@@ -14,8 +16,8 @@ import static org.hamcrest.Matchers.*;
 public class GroupCreationTests extends TestBase {
 	
 	@DataProvider
-	public Iterator<Object[]> groupsFromFile(){
-		return wrapGroupsForDataProvider(loadGroupsFromCsvFile("groups.txt")).iterator();
+	public Iterator<Object[]> groupsFromFile() throws IOException {
+		return wrapGroupsForDataProvider(loadGroupsFromCsvFile(new File("groups.txt"))).iterator();
 		}
 
 	@Test(dataProvider = "groupsFromFile")
