@@ -47,7 +47,7 @@ public class GroupDataGenerator {
 		writer.close();
 		}
 	
-	private static void List<GroupData> loadGroupsFromXmlFile(File file) {
+	private static List<GroupData> loadGroupsFromXmlFile(File file) {
 		// TODO Auto-generated method stub
 		return null;
 	}

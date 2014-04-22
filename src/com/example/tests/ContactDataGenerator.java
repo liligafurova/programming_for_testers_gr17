@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.thoughtworks.xstream.XStream;
+
 public class ContactDataGenerator {
 
 	public static void main(String[] args) throws IOException {
@@ -35,10 +37,19 @@ public class ContactDataGenerator {
 		}
 	}
 
-	private static void saveContactsToXmlFile(List<ContactData> contacts, File file) {
+	public static void saveContactsToXmlFile(List<ContactData> contacts, File file) throws IOException {
+		XStream xstream = new XStream();
+		String xml = xstream.toXML(contacts);
+		FileWriter writer = new FileWriter(file);
+		writer.write(xml);
+		writer.close();
+		}
+	
+	private static List<ContactData> loadContactsFromXmlFile(File file) {
 		// TODO Auto-generated method stub
+		return null;
 	}
-
+	
 	private static void saveContactsToCsvFile(List<ContactData> contacts, File file) throws IOException {
 		FileWriter writer = new FileWriter(file);
 		for (ContactData contact : contacts) {
