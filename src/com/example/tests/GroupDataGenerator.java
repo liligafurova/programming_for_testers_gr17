@@ -41,15 +41,17 @@ public class GroupDataGenerator {
 
 	public static void saveGroupsToXmlFile(List<GroupData> groups, File file) throws IOException {
 		XStream xstream = new XStream();
+		xstream.alias("group", GroupData.class);
 		String xml = xstream.toXML(groups);
 		FileWriter writer = new FileWriter(file);
 		writer.write(xml);
 		writer.close();
 		}
 	
-	private static List<GroupData> loadGroupsFromXmlFile(File file) {
-		// TODO Auto-generated method stub
-		return null;
+	public static List<GroupData> loadGroupsFromXmlFile(File file) throws IOException {
+		XStream xstream = new XStream();
+		xstream.alias("group", GroupData.class);
+		return (List<GroupData>) xstream.fromXML(file);
 	}
 
 	private static void saveGroupsToCsvFile(List<GroupData> groups, File file) throws IOException {
