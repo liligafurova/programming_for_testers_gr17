@@ -1,6 +1,5 @@
 package com.example.tests;
 
-import static com.example.tests.ContactDataGenerator.loadContactsFromCsvFile;
 import static com.example.tests.ContactDataGenerator.loadContactsFromXmlFile;
 
 import static org.junit.Assert.assertThat;
@@ -25,21 +24,19 @@ public class ContactCreationTests extends TestBase {
 	@Test(dataProvider = "contactsFromFile")
     public void testNonEmptyContactCreation(ContactData contact) throws Exception {
     
-    //save old state
-    SortedListOf<ContactData> oldList = app.getContactHelper().getContacts();
-    
-    //actions
-    app.getContactHelper().createContact(contact);
-    
- // save new state
-    SortedListOf<ContactData> newList = app.getContactHelper().getContacts();
-    
-    //compare state
-    assertThat(newList, equalTo(oldList.withAdded(contact)));
-    
-    //oldList.add(contact);
-    //Collections.sort(oldList);
-    //Collections.sort(newList);
-    //assertEquals(newList, oldList);
-  }
+	    //save old state
+	    SortedListOf<ContactData> oldList = 
+	    		new SortedListOf<ContactData>(app.getHibernateHelper().listContacts());
+	    
+	    //actions
+	    app.getContactHelper().createContact(contact);
+	    
+	    // save new state
+	   SortedListOf<ContactData> newList = 
+	    		new SortedListOf<ContactData>(app.getHibernateHelper().listContacts());
+	    
+	    //compare state
+	    assertThat(newList, equalTo(oldList.withAdded(contact)));
+	    
+	}
 }

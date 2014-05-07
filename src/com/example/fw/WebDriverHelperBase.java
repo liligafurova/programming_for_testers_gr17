@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public abstract class WebDriverHelperBase extends HelperBase{
 
-	protected ApplicationManager manager;
 	protected WebDriver driver;
 	public boolean acceptNextAlert = true;
 
